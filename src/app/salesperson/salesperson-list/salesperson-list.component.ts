@@ -9,11 +9,19 @@ import { SalespersonService } from '../salesperson.service';
 })
 export class SalespersonListComponent implements OnInit {
 
-  sales: Salesperson[] = []
+  sales: Salesperson[] = [];
 
   constructor(private salessvc: SalespersonService) { }
 
   ngOnInit(): void {
+
+    this.salessvc.list().subscribe(
+      res =>{console.debug("success", res);
+      this.sales = res;
+      },  
+      err =>{console.error(err);}
+      )
+
   }
 
 }
