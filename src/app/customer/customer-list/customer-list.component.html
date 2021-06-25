@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div>
+    <a routerLink="/cust/create">Create</a>
+</div>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>IsNational</th>
+            <th>Sales</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let c of custs">
+            <td>{{c.code}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.isNational}}</td>
+            <td>{{c.sales | currency}}</td>
+            <td>{{c.created | date: 'shortDate'}}</td>
+            <td>
+                <span>
+                    <a routerLink="/cust/detail/{{c.id}}">Detail</a>
+                </span>
+                <span> | </span>
+                <span>
+                    <a routerLink="/cust/edit/{{c.id}}">Edit</a>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+    </table>
