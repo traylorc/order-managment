@@ -13,12 +13,14 @@ import { SalespersonCreateComponent } from './salesperson/salesperson-create/sal
 import { SalespersonEditComponent } from './salesperson/salesperson-edit/salesperson-edit.component';
 
 
+
+import { LoginComponent } from './salesperson/login/login.component';
 import { E404Component } from './misc/e404/e404.component';
 
 
 
 const routes: Routes = [
-  {path:'', redirectTo:'/cust/list', pathMatch:'full'},
+  {path:'', redirectTo:'/login', pathMatch:'full'},
 
   {path:'cust/list', component: CustomerListComponent},
   {path:'cust/detail/:id', component: CustomerDetailComponent},
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path:'sp/detail/:id', component: SalespersonDetailComponent},
   {path:'sp/create', component: SalespersonCreateComponent},
   {path:'sp/edit/:id', component: SalespersonEditComponent},
+
+  {path: 'login', component: LoginComponent },
   
   
   
