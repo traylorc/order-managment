@@ -1,19 +1,20 @@
 <app-menu></app-menu>
+
 <div>
-    <a routerLink="/sp/create">Create</a>
+    <input [(ngModel)]="searchCriteria" type="text" placeholder="Search">
 </div>
 
 <table class="table table-sm">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>StateCode</th>
-            <th>Sales</th>            
+            <th><button (click) = "sortFn('name')" class="btn btn-link">Name</button></th>
+            <th><button (click) = "sortFn('stateCode')" class="btn btn-link">StateCode</button></th>
+            <th><button (click) = "sortFn('sales')" class="btn btn-link">Sales</button></th>            
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor= "let s of sales">
+        <tr *ngFor= "let s of sales | searchSalesperson:searchCriteria | sort:sortColumn:sortAsc">
             <td>{{s.name}}</td>
             <td>{{s.stateCode}}</td>
             <td>{{s.sales | currency}}</td>            
@@ -28,4 +29,7 @@
             </td>
         </tr>
     </tbody>
-    </table>
+</table>
+<div>
+    <a routerLink="/sp/create">Create</a>
+</div>

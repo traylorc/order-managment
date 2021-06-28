@@ -9,6 +9,21 @@ import { SalespersonService } from '../salesperson.service';
 })
 export class SalespersonListComponent implements OnInit {
 
+  sortColumn: string = "id";
+  sortAsc: boolean = true;
+
+  sortFn(column: string): void {
+    if(column === this .sortColumn){
+      this.sortAsc = !this.sortAsc;
+      return;
+    }
+    this.sortColumn = column;
+    this.sortAsc = true;
+  }
+
+  searchCriteria: string = "";
+
+
   sales: Salesperson[] = [];
 
   constructor(private salessvc: SalespersonService) { }
